@@ -89,14 +89,25 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.environ.get('POSTGRES_DB'),
+#         'USER': os.environ.get('POSTGRES_USERNAME'),
+#         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+#         'HOST': 'postgres-svc',  # Kubernetes service name of the Postgres database
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('POSTGRES_DB'),
-        'USER': os.environ.get('POSTGRES_USERNAME'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-        'HOST': 'postgres-svc',  # Kubernetes service name of the Postgres database
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'appdb',
+        'USER': 'admin',
+        'PASSWORD': 'admin123',
+        'HOST': 'database-1.c9ke46ewy3ly.us-east-1.rds.amazonaws.com',  # your RDS endpoint
+        'PORT': '3306',
     }
 }
 
